@@ -1,0 +1,11 @@
+# Task ID: 7
+# Title: Develop Checkout Flow
+# Status: pending
+# Dependencies: 6
+# Priority: high
+# Description: Implement the checkout page and order confirmation process.
+# Details:
+Create a new page `pages/checkout.js`. Implement a form for user details and mock payment processing. On successful submission, redirect to an order confirmation page.
+
+# Test Strategy:
+Test the checkout process to ensure that user details are captured and the order confirmation page displays correctly.

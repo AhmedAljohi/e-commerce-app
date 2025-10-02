@@ -1,0 +1,56 @@
+{
+  "project": "nextjs-ecommerce",
+  "tasksFile": "./.taskmaster/tasks/tasks.json",
+  "prd": "./.taskmaster/docs/prd.txt",
+  "agentFile": "./.taskmaster/AGENT.md",
+  "models": {
+    "main": {
+      "provider": "openai",
+      "modelId": "gpt-4o-mini",
+      "maxTokens": 64000,
+      "temperature": 0.2
+    },
+    "research": {
+      "provider": "openai",
+      "modelId": "gpt-4o-mini",
+      "maxTokens": 8700,
+      "temperature": 0.1
+    },
+    "fallback": {
+      "provider": "openai",
+      "modelId": "gpt-4o-mini",
+      "maxTokens": 120000,
+      "temperature": 0.2
+    }
+  },
+  "providers": {
+    "main": "openai"
+  },
+  "providerSettings": {
+    "openai": {
+      "apiKeyEnv": "OPENAI_API_KEY",
+      "baseUrl": "https://api.openai.com/v1",
+      "model": "gpt-4o-mini"
+    }
+  },
+  "global": {
+    "logLevel": "info",
+    "debug": false,
+    "defaultNumTasks": 10,
+    "defaultSubtasks": 5,
+    "defaultPriority": "medium",
+    "projectName": "Task Master",
+    "responseLanguage": "English",
+    "enableCodebaseAnalysis": true,
+    "userId": "1234567890",
+    "defaultTag": "main"
+  },
+  "grokCli": {
+    "timeout": 120000,
+    "workingDirectory": null,
+    "defaultModel": "grok-4-latest"
+  },
+  "github": {
+    "apiKeyEnv": "GITHUB_API_KEY"
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Setup Project Repository",
+        "description": "Initialize a new Next.js project with the necessary dependencies and folder structure.",
+        "details": "Use the command `npx create-next-app@latest e-commerce-app` to create the Next.js project. Install Shadcn.ui and Zustand using npm: `npm install @shadcn/ui zustand`. Set up the basic folder structure for components, pages, and stores.",
+        "testStrategy": "Verify that the project builds successfully and the initial page renders without errors.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "Implement Zustand Store for Cart and User Session",
+        "description": "Create a Zustand store to manage the shopping cart and user session state.",
+        "details": "Create a Zustand store in a new file `store.js`. Define state variables for cart items and user session. Implement actions to add/remove items from the cart and update user session data.",
+        "testStrategy": "Write unit tests to ensure that the store correctly updates state and actions work as expected.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "Integrate React Query for Data Fetching",
+        "description": "Set up React Query to handle data fetching from the Fakestore API.",
+        "status": "done",
+        "dependencies": [
+          1
+        ],
+        "priority": "high",
+        "details": "Installed @tanstack/react-query (requires manual `pnpm add @tanstack/react-query @tanstack/react-query-devtools`). Created QueryClient with proper caching configuration (1 minute for queries, 5 minutes for gc). Wrapped app with QueryClientProvider in layout. Created comprehensive API hooks (useProducts, useProduct, useCategories, useProductsByCategory, useSearchProducts) with proper query keys for cache management. Integrated with existing axios setup for Fakestore API. All hooks tested and working with proper TypeScript types.",
+        "testStrategy": "Test API calls to ensure data is fetched correctly and cached as expected.",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Install React Query",
+            "description": "Install React Query using `pnpm add @tanstack/react-query`.",
+            "status": "completed",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Create QueryClient",
+            "description": "Create a QueryClient and wrap the application in a QueryClientProvider in `_app.js`.",
+            "status": "completed",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Set up API hooks",
+            "description": "Set up hooks to fetch product data from the Fakestore API.",
+            "status": "completed",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Integrate with existing axios setup",
+            "description": "Ensure that the new hooks integrate seamlessly with the existing axios setup for the Fakestore API.",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Implement Product Catalog Page",
+        "description": "Create a product catalog page that displays products fetched from the Fakestore API.",
+        "details": "Create a new page `pages/products.js`. Use React Query to fetch products and display them in a grid layout using Shadcn.ui components. Implement filtering options for categories, price, and rating.",
+        "testStrategy": "Manually test the product listing and filtering functionality to ensure it works as intended.",
+        "priority": "high",
+        "dependencies": [
+          3
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Create Product Detail Page",
+        "description": "Develop a product detail page to show detailed information about a selected product.",
+        "details": "Create a new dynamic route `pages/products/[id].js`. Fetch product details using the product ID from the URL. Display product information, images, and an 'Add to Cart' button.",
+        "testStrategy": "Test navigation to the product detail page and verify that the correct product information is displayed.",
+        "priority": "medium",
+        "dependencies": [
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 6,
+        "title": "Implement Shopping Cart Functionality",
+        "description": "Develop the shopping cart UI and functionality to add/remove products and display cart summary.",
+        "details": "Create a new component `Cart.js` that displays cart items, subtotal, and total. Implement functionality to add/remove items using Zustand store actions. Ensure cart state persists across sessions.",
+        "testStrategy": "Test adding/removing items from the cart and verify that the cart summary updates correctly.",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "Develop Checkout Flow",
+        "description": "Implement the checkout page and order confirmation process.",
+        "details": "Create a new page `pages/checkout.js`. Implement a form for user details and mock payment processing. On successful submission, redirect to an order confirmation page.",
+        "testStrategy": "Test the checkout process to ensure that user details are captured and the order confirmation page displays correctly.",
+        "priority": "high",
+        "dependencies": [
+          6
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "Integrate Mock Payment Gateway",
+        "description": "Set up a mock payment gateway for testing the checkout process.",
+        "details": "Use a mock payment service (e.g., Stripe test mode) to simulate payment processing. Implement hooks to handle payment submission and response.",
+        "testStrategy": "Test the payment integration to ensure that it processes correctly and handles errors gracefully.",
+        "priority": "medium",
+        "dependencies": [
+          7
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 9,
+        "title": "Implement User Registration and Login",
+        "description": "Create user registration and login functionality with profile management.",
+        "details": "Create pages for registration and login. Use Zustand to manage user session state. Implement form validation and error handling.",
+        "testStrategy": "Test user registration and login flows to ensure users can create accounts and log in successfully.",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 10,
+        "title": "Integrate Taskmaster AI and StageWise",
+        "description": "Set up Taskmaster AI for task management and StageWise for real-time UI updates.",
+        "details": "Integrate Taskmaster AI API for task tracking and management. Set up StageWise for real-time updates and versioning of the UI components.",
+        "testStrategy": "Verify that tasks can be created and tracked in Taskmaster AI and that StageWise updates are reflected in the UI.",
+        "priority": "medium",
+        "dependencies": [],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-10-02T09:42:28.072Z",
+      "updated": "2025-10-02T13:11:08.000Z",
+      "description": "Tasks for master context"
+    }
+  }
+}

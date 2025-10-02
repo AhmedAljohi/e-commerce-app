@@ -1,0 +1,11 @@
+# Task ID: 2
+# Title: Implement Zustand Store for Cart and User Session
+# Status: pending
+# Dependencies: 1
+# Priority: high
+# Description: Create a Zustand store to manage the shopping cart and user session state.
+# Details:
+Create a Zustand store in a new file `store.js`. Define state variables for cart items and user session. Implement actions to add/remove items from the cart and update user session data.
+
+# Test Strategy:
+Write unit tests to ensure that the store correctly updates state and actions work as expected.
