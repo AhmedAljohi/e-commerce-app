@@ -1,0 +1,104 @@
+<context>
+# Overview
+This project is a modern e-commerce application built with Next.js, Shadcn.ui, React Query, and Zustand. It is designed to provide a seamless online shopping experience with real-time product data fetched from the Fakestore API. The application is targeted at online shoppers seeking an intuitive, fast, and visually appealing platform. Additionally, Taskmaster AI will be used for task and workflow management, and StageWise will handle real-time UI updates, ensuring the development process is organized and efficient.
+
+# Core Features
+1. **User Management**
+   - Allows users to register, log in (OAuth optional), manage profiles, and view order history.
+   - Important for personalized experiences and maintaining user accounts.
+   - High-level: Registration/auth flows, profile pages, and order tracking UI.
+
+2. **Product Catalog**
+   - Display products fetched from Fakestore API with filtering by category, price, and rating.
+   - Important for efficient browsing and product discovery.
+   - High-level: Product listing page, product detail pages, category filters.
+
+3. **Shopping Cart**
+   - Add/remove products, persist cart state using Zustand, display cart summary.
+   - Important to enable smooth purchase flow.
+   - High-level: Cart UI, persistent state management, subtotal/total calculations.
+
+4. **Order Management**
+   - Checkout flow, order confirmation, mock payment integration, and history tracking.
+   - Important to complete purchases and provide users with tracking info.
+   - High-level: Checkout page, order confirmation page, order history.
+
+5. **Payment Integration**
+   - Secure checkout using test payment gateways (Stripe test mode).
+   - Supports multiple payment methods in future.
+   - High-level: Payment forms and processing hooks.
+
+# User Experience
+- **User Personas:** Online shoppers looking for fast and easy browsing with responsive UI.
+- **Key User Flows:** 
+  1. Browse products → view details → add to cart → checkout.
+  2. Register/Login → manage profile → track orders.
+- **UI/UX Considerations:** 
+  - Responsive across desktop, tablet, mobile.
+  - Consistent color scheme, typography, and spacing.
+  - Minimalist, clear navigation for faster conversions.
+</context>
+
+<PRD>
+# Technical Architecture
+- **Frontend:** Next.js (SSR, SSG, ISR) and Shadcn.ui components for responsive UI.
+- **State Management:** 
+  - React Query for server state, caching, and background refetching.
+  - Zustand for client state: cart, user session, UI preferences.
+- **Backend/Data:** Fakestore API for product data. Future option: PostgreSQL or Firebase backend.
+- **Utilities:** Taskmaster AI for task management, StageWise for real-time UI updates and versioning.
+- **APIs and Integrations:** 
+  - Fakestore endpoints:
+    - `GET /products` → all products.
+    - `GET /products/{id}` → product details.
+    - `GET /products/categories` → list categories.
+    - `GET /products/category/{category}` → products by category.
+- **Infrastructure:** Hosting on Vercel, CI/CD via GitHub Actions, StageWise for staging environment.
+
+# Development Roadmap
+**MVP Requirements:**
+- Set up Next.js project with Shadcn.ui and Zustand.
+- Implement basic product catalog using Fakestore API.
+- Implement shopping cart and checkout with mock payments.
+- User registration/login with basic profile management.
+- Initial integration of Taskmaster AI for task tracking.
+- StageWise integration for UI updates.
+
+**Future Enhancements:**
+- AI-driven product recommendations.
+- Multi-language & multi-currency support.
+- Advanced analytics dashboard.
+- Real ERP/CRM integration.
+- Progressive Web App support.
+- Social commerce features.
+
+# Logical Dependency Chain
+1. **Foundation**
+   - Next.js setup, Shadcn.ui components, basic folder structure.
+   - Zustand store for cart and user session.
+2. **Product Catalog**
+   - Fetch products, display listing, product detail page.
+3. **User Management**
+   - Registration, login, profile management.
+4. **Shopping Cart & Checkout**
+   - Cart UI, add/remove items, checkout flow.
+5. **Order Management & Payment**
+   - Mock payments, order confirmation, history.
+6. **Taskmaster AI Integration**
+   - Task creation and tracking, backlog management.
+7. **StageWise Integration**
+   - Real-time UI updates, versioning, rollbacks.
+
+# Risks and Mitigations
+- **Technical Challenges:** SSR/SSG complexities with Next.js → mitigate by testing key pages early.
+- **MVP Scope:** Overcomplicating features → focus on atomic, functional features first.
+- **Resource Constraints:** Limited development time → prioritize high-impact features, defer enhancements.
+
+# Appendix
+- **Research Findings:** Fakestore API endpoints, React Query caching strategies, Shadcn.ui component library reference.
+- **Technical Specifications:** 
+  - Next.js version ≥14, React 18+, Shadcn.ui latest.
+  - React Query hooks for API calls.
+  - Zustand store with persistence for cart/session.
+  - CI/CD pipeline for deployment and automatic testing.
+</PRD>

@@ -1,0 +1,11 @@
+# Task ID: 6
+# Title: Implement Shopping Cart Functionality
+# Status: pending
+# Dependencies: 2
+# Priority: high
+# Description: Develop the shopping cart UI and functionality to add/remove products and display cart summary.
+# Details:
+Create a new component `Cart.js` that displays cart items, subtotal, and total. Implement functionality to add/remove items using Zustand store actions. Ensure cart state persists across sessions.
+
+# Test Strategy:
+Test adding/removing items from the cart and verify that the cart summary updates correctly.

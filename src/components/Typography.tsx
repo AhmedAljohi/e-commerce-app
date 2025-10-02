@@ -6,6 +6,7 @@ type TypographyBaseProps = {
   children?: React.ReactNode;
   variant?: "heading" | "subheading" | "body" | "caption";
   weight?: "light" | "normal" | "medium" | "semibold" | "bold";
+  textColor?: 'gary'|'default'|'light'|'lighter'|'white';
   className?: string;
   href?: string;
   target?: "_blank" | "_self" | "_parent" | "_top";
@@ -19,6 +20,7 @@ export const Typography = ({
   variant = "body",
   weight = "normal",
   className = "",
+  textColor = "default",
   ...rest
 }: TypographyBaseProps) => {
   const Component = as;
@@ -38,7 +40,16 @@ export const Typography = ({
     bold: "font-bold",
   };
 
-  const classes = `${baseClasses[variant]} ${weightClasses[weight]} ${className}`;
+  const textColorClasses = {
+    gary: "#808080",
+    light: "#F5F5F7",
+    lighter: "#D2D2D7",
+    white: "#FFFFFF",
+    default: "#121212",
+    // Add more colors as needed
+  };
+
+  const classes = `${baseClasses[variant]} ${weightClasses[weight]} ${textColorClasses[textColor]} ${className}`;
   return (
     <Component className={classes} {...rest}>
       {text || children}

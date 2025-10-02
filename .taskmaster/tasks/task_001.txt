@@ -1,0 +1,11 @@
+# Task ID: 1
+# Title: Setup Project Repository
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Initialize a new Next.js project with the necessary dependencies and folder structure.
+# Details:
+Use the command `npx create-next-app@latest e-commerce-app` to create the Next.js project. Install Shadcn.ui and Zustand using npm: `npm install @shadcn/ui zustand`. Set up the basic folder structure for components, pages, and stores.
+
+# Test Strategy:
+Verify that the project builds successfully and the initial page renders without errors.
