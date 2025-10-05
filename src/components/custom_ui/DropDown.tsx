@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   DropdownMenu,
@@ -8,8 +8,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import React from "react";
+} from '@/components/ui/dropdown-menu';
+import React from 'react';
 
 type PropsType = {
   TriggerItem: React.ReactNode;
@@ -19,7 +19,7 @@ type PropsType = {
     label: string;
     shortcut?: string;
   }[];
-  position: "start" | "end";
+  position: 'start' | 'end';
   className: string;
 };
 
@@ -32,16 +32,14 @@ export function Dropdown({
 }: PropsType) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        {TriggerItem}
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild>{TriggerItem}</DropdownMenuTrigger>
       <DropdownMenuContent className={className} align={position}>
         <DropdownMenuLabel>{menuLabel}</DropdownMenuLabel>
         <DropdownMenuGroup>
           {menuItemList.map((item, index) => (
             <DropdownMenuItem
               key={index}
-              onSelect={() => console.log("item", item)}
+              onSelect={() => console.log('item', item)}
             >
               {item.label}
 

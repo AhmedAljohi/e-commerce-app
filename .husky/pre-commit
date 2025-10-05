@@ -1,0 +1,31 @@
+# Colors for output
+green='\033[0;32m'
+blue='\033[0;34m'
+yellow='\033[1;33m'
+red='\033[0;31m'
+no_color='\033[0m'
+
+echo "\n${blue}🔍 Running pre-commit checks...${no_color}"
+
+# TypeScript compilation check
+echo "\n${green}🔧 Running TypeScript compilation check...${no_color}"
+if ! pnpm exec tsc --noEmit; then
+    echo "\n${red}❌ TypeScript compilation failed!${no_color}"
+    echo "${yellow}💡 Fix TypeScript errors before committing.${no_color}"
+    exit 1
+fi
+echo "${green}✅ TypeScript compilation passed${no_color}"
+
+# Run lint-staged (this handles ESLint, Stylelint, and Prettier)
+echo "\n${green}📝 Running lint-staged (ESLint, Stylelint, Prettier)${no_color}"
+pnpm exec lint-staged
+
+# Check if lint-staged succeeded
+if [ $? -ne 0 ]; then
+    echo "\n${red}❌ Pre-commit checks failed!${no_color}"
+    echo "${yellow}💡 Fix the issues above and try committing again.${no_color}"
+    exit 1
+fi
+
+echo "\n${green}✅ All pre-commit checks passed!${no_color}"
+echo "${blue}🚀 Proceeding with commit...${no_color}"

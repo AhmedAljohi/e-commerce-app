@@ -42,7 +42,12 @@ export interface UserState {
 }
 
 export interface CartActions {
-  addItem: (product: Product, quantity?: number, size?: string, color?: string) => void;
+  addItem: (
+    product: Product,
+    quantity?: number,
+    size?: string,
+    color?: string
+  ) => void;
   removeItem: (itemId: string) => void;
   updateQuantity: (itemId: string, quantity: number) => void;
   clearCart: () => void;

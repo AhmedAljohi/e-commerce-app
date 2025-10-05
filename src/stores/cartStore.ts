@@ -14,12 +14,17 @@ export const useCartStore = create<CartStore>()(
       isOpen: false,
 
       // Actions
-      addItem: (product: Product, quantity: number = 1, size?: string, color?: string) => {
+      addItem: (
+        product: Product,
+        quantity: number = 1,
+        size?: string,
+        color?: string
+      ) => {
         const { items } = get();
         const existingItemIndex = items.findIndex(
-          item => 
-            item.product.id === product.id && 
-            item.size === size && 
+          (item) =>
+            item.product.id === product.id &&
+            item.size === size &&
             item.color === color
         );
 
@@ -45,9 +50,12 @@ export const useCartStore = create<CartStore>()(
         }
 
         // Calculate totals
-        const totalItems = newItems.reduce((sum, item) => sum + item.quantity, 0);
+        const totalItems = newItems.reduce(
+          (sum, item) => sum + item.quantity,
+          0
+        );
         const totalPrice = newItems.reduce(
-          (sum, item) => sum + (item.product.price * item.quantity),
+          (sum, item) => sum + item.product.price * item.quantity,
           0
         );
 
@@ -60,11 +68,14 @@ export const useCartStore = create<CartStore>()(
 
       removeItem: (itemId: string) => {
         const { items } = get();
-        const newItems = items.filter(item => item.id !== itemId);
-        
-        const totalItems = newItems.reduce((sum, item) => sum + item.quantity, 0);
+        const newItems = items.filter((item) => item.id !== itemId);
+
+        const totalItems = newItems.reduce(
+          (sum, item) => sum + item.quantity,
+          0
+        );
         const totalPrice = newItems.reduce(
-          (sum, item) => sum + (item.product.price * item.quantity),
+          (sum, item) => sum + item.product.price * item.quantity,
           0
         );
 
@@ -82,13 +93,16 @@ export const useCartStore = create<CartStore>()(
         }
 
         const { items } = get();
-        const newItems = items.map(item =>
+        const newItems = items.map((item) =>
           item.id === itemId ? { ...item, quantity } : item
         );
 
-        const totalItems = newItems.reduce((sum, item) => sum + item.quantity, 0);
+        const totalItems = newItems.reduce(
+          (sum, item) => sum + item.quantity,
+          0
+        );
         const totalPrice = newItems.reduce(
-          (sum, item) => sum + (item.product.price * item.quantity),
+          (sum, item) => sum + item.product.price * item.quantity,
           0
         );
 
@@ -108,7 +122,7 @@ export const useCartStore = create<CartStore>()(
       },
 
       toggleCart: () => {
-        set(state => ({ isOpen: !state.isOpen }));
+        set((state) => ({ isOpen: !state.isOpen }));
       },
 
       setCartOpen: (isOpen: boolean) => {

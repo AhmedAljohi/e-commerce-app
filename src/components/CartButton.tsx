@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useCartStore } from '@/stores';
 import { ShoppingCart } from 'lucide-react';

@@ -1,10 +1,14 @@
-"use client";
+'use client';
 
-import { Toaster } from "react-hot-toast";
-import { Providers } from "@/components/Providers";
-import "./globals.css";
+import { Toaster } from 'react-hot-toast';
+import { Providers } from '@/components/Providers';
+import './globals.css';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body>

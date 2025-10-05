@@ -19,9 +19,7 @@
         "details": "Create a Zustand store in a new file `store.js`. Define state variables for cart items and user session. Implement actions to add/remove items from the cart and update user session data.",
         "testStrategy": "Write unit tests to ensure that the store correctly updates state and actions work as expected.",
         "priority": "high",
-        "dependencies": [
-          1
-        ],
+        "dependencies": [1],
         "status": "done",
         "subtasks": []
       },
@@ -30,9 +28,7 @@
         "title": "Integrate React Query for Data Fetching",
         "description": "Set up React Query to handle data fetching from the Fakestore API.",
         "status": "done",
-        "dependencies": [
-          1
-        ],
+        "dependencies": [1],
         "priority": "high",
         "details": "Installed @tanstack/react-query (requires manual `pnpm add @tanstack/react-query @tanstack/react-query-devtools`). Created QueryClient with proper caching configuration (1 minute for queries, 5 minutes for gc). Wrapped app with QueryClientProvider in layout. Created comprehensive API hooks (useProducts, useProduct, useCategories, useProductsByCategory, useSearchProducts) with proper query keys for cache management. Integrated with existing axios setup for Fakestore API. All hooks tested and working with proper TypeScript types.",
         "testStrategy": "Test API calls to ensure data is fetched correctly and cached as expected.",
@@ -82,9 +78,7 @@
         "details": "Create a new page `pages/products.js`. Use React Query to fetch products and display them in a grid layout using Shadcn.ui components. Implement filtering options for categories, price, and rating.",
         "testStrategy": "Manually test the product listing and filtering functionality to ensure it works as intended.",
         "priority": "high",
-        "dependencies": [
-          3
-        ],
+        "dependencies": [3],
         "status": "pending",
         "subtasks": []
       },
@@ -95,9 +89,7 @@
         "details": "Create a new dynamic route `pages/products/[id].js`. Fetch product details using the product ID from the URL. Display product information, images, and an 'Add to Cart' button.",
         "testStrategy": "Test navigation to the product detail page and verify that the correct product information is displayed.",
         "priority": "medium",
-        "dependencies": [
-          4
-        ],
+        "dependencies": [4],
         "status": "pending",
         "subtasks": []
       },
@@ -108,9 +100,7 @@
         "details": "Create a new component `Cart.js` that displays cart items, subtotal, and total. Implement functionality to add/remove items using Zustand store actions. Ensure cart state persists across sessions.",
         "testStrategy": "Test adding/removing items from the cart and verify that the cart summary updates correctly.",
         "priority": "high",
-        "dependencies": [
-          2
-        ],
+        "dependencies": [2],
         "status": "pending",
         "subtasks": []
       },
@@ -121,9 +111,7 @@
         "details": "Create a new page `pages/checkout.js`. Implement a form for user details and mock payment processing. On successful submission, redirect to an order confirmation page.",
         "testStrategy": "Test the checkout process to ensure that user details are captured and the order confirmation page displays correctly.",
         "priority": "high",
-        "dependencies": [
-          6
-        ],
+        "dependencies": [6],
         "status": "pending",
         "subtasks": []
       },
@@ -134,9 +122,7 @@
         "details": "Use a mock payment service (e.g., Stripe test mode) to simulate payment processing. Implement hooks to handle payment submission and response.",
         "testStrategy": "Test the payment integration to ensure that it processes correctly and handles errors gracefully.",
         "priority": "medium",
-        "dependencies": [
-          7
-        ],
+        "dependencies": [7],
         "status": "pending",
         "subtasks": []
       },
@@ -147,9 +133,7 @@
         "details": "Create pages for registration and login. Use Zustand to manage user session state. Implement form validation and error handling.",
         "testStrategy": "Test user registration and login flows to ensure users can create accounts and log in successfully.",
         "priority": "high",
-        "dependencies": [
-          2
-        ],
+        "dependencies": [2],
         "status": "pending",
         "subtasks": []
       },
@@ -163,11 +147,83 @@
         "dependencies": [],
         "status": "pending",
         "subtasks": []
+      },
+      {
+        "id": 11,
+        "title": "Setup Pre-Commit Workflow with Husky and Taskmaster AI",
+        "status": "done",
+        "dependencies": [1],
+        "priority": "high",
+        "description": "Configure Husky hooks for pre-commit and post-commit to enforce linting, formatting, type checking, and update Taskmaster tasks automatically.",
+        "details": "1. Install Husky and lint-staged using pnpm to manage pre-commit hooks effectively. 2. Create a pre-commit hook that runs the following checks: - ESLint to ensure code quality and adherence to coding standards. - Stylelint to enforce consistent styling in CSS. - TypeScript type check to catch type errors before committing. - Prettier formatting check to maintain consistent code formatting. - Taskmaster AI pre-commit task to update task status based on the current changes. 3. Create a post-commit hook that triggers an update to Taskmaster AI to reflect the latest changes made in the codebase. 4. Update package.json scripts to include commands for pre-commit and post-commit hooks. 5. Ensure that the hooks are executable by setting the appropriate permissions.",
+        "testStrategy": "1. Make a code change that intentionally fails one of the linting/type/prettier checks and attempt to commit; the commit should fail, indicating that the hooks are working correctly. 2. Make a valid code change that passes all checks and attempt to commit; the commit should succeed, and Taskmaster should update the task status accordingly. 3. Verify that the hooks are correctly set up by checking the .husky directory and ensuring that the hooks are executable.",
+        "subtasks": [
+          {
+            "id": 11,
+            "title": "Install Husky and lint-staged",
+            "status": "done",
+            "description": "Install Husky and lint-staged using pnpm to manage git hooks.",
+            "priority": "high",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 11,
+            "title": "Create .husky/pre-commit hook",
+            "status": "done",
+            "description": "Create pre-commit hook to run ESLint, Stylelint, TypeScript type check, Prettier check, and Taskmaster AI pre-commit task.",
+            "priority": "high",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 11,
+            "title": "Create .husky/post-commit hook",
+            "status": "done",
+            "description": "Create post-commit hook to automatically run Taskmaster AI post-commit updates.",
+            "priority": "medium",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 11,
+            "title": "Add pre-commit scripts to package.json",
+            "status": "done",
+            "description": "Update package.json scripts section to include pre-commit and post-commit commands for linting, formatting, type checking, and Taskmaster AI hooks.",
+            "priority": "medium",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 11,
+            "title": "Make Husky hooks executable",
+            "status": "done",
+            "description": "Ensure all Husky hooks in the .husky folder are executable (`chmod +x .husky/*`).",
+            "priority": "high",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 11,
+            "title": "Test pre-commit workflow",
+            "status": "done",
+            "description": "Make code changes that fail lint/type/prettier checks and confirm the commit fails. Make valid changes and confirm commit succeeds and Taskmaster AI updates the task.",
+            "priority": "high",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          }
+        ]
       }
     ],
     "metadata": {
       "created": "2025-10-02T09:42:28.072Z",
-      "updated": "2025-10-02T13:11:08.000Z",
+      "updated": "2025-10-05T11:05:07.083Z",
       "description": "Tasks for master context"
     }
   }

@@ -1,0 +1,49 @@
+# Task ID: 11
+# Title: Setup Pre-Commit Workflow with Husky and Taskmaster AI
+# Status: pending
+# Dependencies: 1
+# Priority: high
+# Description: Configure Husky hooks for pre-commit and post-commit to enforce linting, formatting, type checking, and update Taskmaster tasks automatically.
+# Details:
+1. Install Husky and lint-staged using pnpm to manage pre-commit hooks effectively. 2. Create a pre-commit hook that runs the following checks: - ESLint to ensure code quality and adherence to coding standards. - Stylelint to enforce consistent styling in CSS. - TypeScript type check to catch type errors before committing. - Prettier formatting check to maintain consistent code formatting. - Taskmaster AI pre-commit task to update task status based on the current changes. 3. Create a post-commit hook that triggers an update to Taskmaster AI to reflect the latest changes made in the codebase. 4. Update package.json scripts to include commands for pre-commit and post-commit hooks. 5. Ensure that the hooks are executable by setting the appropriate permissions.
+
+# Test Strategy:
+1. Make a code change that intentionally fails one of the linting/type/prettier checks and attempt to commit; the commit should fail, indicating that the hooks are working correctly. 2. Make a valid code change that passes all checks and attempt to commit; the commit should succeed, and Taskmaster should update the task status accordingly. 3. Verify that the hooks are correctly set up by checking the .husky directory and ensuring that the hooks are executable.
+
+# Subtasks:
+## 11. Install Husky and lint-staged [pending]
+### Dependencies: None
+### Description: Install Husky and lint-staged using pnpm to manage git hooks.
+### Details:
+
+
+## 11. Create .husky/pre-commit hook [pending]
+### Dependencies: None
+### Description: Create pre-commit hook to run ESLint, Stylelint, TypeScript type check, Prettier check, and Taskmaster AI pre-commit task.
+### Details:
+
+
+## 11. Create .husky/post-commit hook [pending]
+### Dependencies: None
+### Description: Create post-commit hook to automatically run Taskmaster AI post-commit updates.
+### Details:
+
+
+## 11. Add pre-commit scripts to package.json [pending]
+### Dependencies: None
+### Description: Update package.json scripts section to include pre-commit and post-commit commands for linting, formatting, type checking, and Taskmaster AI hooks.
+### Details:
+
+
+## 11. Make Husky hooks executable [pending]
+### Dependencies: None
+### Description: Ensure all Husky hooks in the .husky folder are executable (`chmod +x .husky/*`).
+### Details:
+
+
+## 11. Test pre-commit workflow [pending]
+### Dependencies: None
+### Description: Make code changes that fail lint/type/prettier checks and confirm the commit fails. Make valid changes and confirm commit succeeds and Taskmaster AI updates the task.
+### Details:
+
+

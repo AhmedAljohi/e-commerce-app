@@ -1,6 +1,6 @@
 # Task ID: 2
 # Title: Implement Zustand Store for Cart and User Session
-# Status: pending
+# Status: done
 # Dependencies: 1
 # Priority: high
 # Description: Create a Zustand store to manage the shopping cart and user session state.
