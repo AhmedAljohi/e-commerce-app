@@ -1,6 +1,6 @@
 # Task ID: 1
 # Title: Setup Project Repository
-# Status: pending
+# Status: done
 # Dependencies: None
 # Priority: high
 # Description: Initialize a new Next.js project with the necessary dependencies and folder structure.

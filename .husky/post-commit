@@ -1,0 +1,21 @@
+# Colors for output
+green='\033[0;32m'
+blue='\033[0;34m'
+yellow='\033[1;33m'
+no_color='\033[0m'
+
+echo "\n${blue}🔄 Running post-commit updates...${no_color}"
+
+# Update Taskmaster AI with commit information
+echo "\n${green}📊 Updating Taskmaster AI with commit details${no_color}"
+
+# Get commit hash and message
+COMMIT_HASH=$(git rev-parse HEAD)
+COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+
+echo "Commit: ${COMMIT_HASH}"
+echo "Message: ${COMMIT_MESSAGE}"
+
+# Here you could add Taskmaster AI API calls to update task status
+# For now, we'll just log the information
+echo "\n${green}✅ Post-commit updates completed!${no_color}"

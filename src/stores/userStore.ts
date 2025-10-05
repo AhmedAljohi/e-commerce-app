@@ -13,13 +13,13 @@ export const useUserStore = create<UserStore>()(
       error: null,
 
       // Actions
-      login: async (email: string, password: string) => {
+      login: async (email: string) => {
         set({ isLoading: true, error: null });
-        
+
         try {
           // Simulate API call - replace with actual authentication logic
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+
           // Mock user data - replace with actual API response
           const user: User = {
             id: '1',

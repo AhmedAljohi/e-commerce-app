@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: "https://fakestoreapi.com", // default backend
+  baseURL: 'https://fakestoreapi.com', // default backend
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
 });

@@ -1,5 +1,6 @@
-"use client";
+'use client';
 
+import Image from 'next/image';
 import { useProducts } from '@/hooks/useProducts';
 import { useCartStore } from '@/stores';
 
@@ -25,9 +26,7 @@ export function ProductList({ limit }: { limit?: number }) {
 
   if (!products || products.length === 0) {
     return (
-      <div className="text-center py-12 text-gray-600">
-        No products found
-      </div>
+      <div className="text-center py-12 text-gray-600">No products found</div>
     );
   }
 
@@ -39,10 +38,11 @@ export function ProductList({ limit }: { limit?: number }) {
           className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         >
           <div className="aspect-square relative">
-            <img
+            <Image
               src={product.image}
               alt={product.name}
-              className="w-full h-full object-contain p-4"
+              fill
+              className="object-contain p-4"
             />
           </div>
           <div className="p-4">
@@ -50,7 +50,9 @@ export function ProductList({ limit }: { limit?: number }) {
               {product.name}
             </h3>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xl font-bold">${product.price.toFixed(2)}</span>
+              <span className="text-xl font-bold">
+                ${product.price.toFixed(2)}
+              </span>
               {product.rating && (
                 <div className="flex items-center gap-1">
                   <span className="text-yellow-500">★</span>

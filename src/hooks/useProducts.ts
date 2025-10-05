@@ -1,17 +1,19 @@
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import { productApi } from '@/lib/api';
-import { FakestoreProduct, transformProduct } from '@/types/api';
+import { transformProduct } from '@/types/api';
 import { Product } from '@/types/store';
 
 // Query Keys
 export const productKeys = {
   all: ['products'] as const,
   lists: () => [...productKeys.all, 'list'] as const,
-  list: (filters?: { limit?: number }) => [...productKeys.lists(), filters] as const,
+  list: (filters?: { limit?: number }) =>
+    [...productKeys.lists(), filters] as const,
   details: () => [...productKeys.all, 'detail'] as const,
   detail: (id: string) => [...productKeys.details(), id] as const,
   categories: () => [...productKeys.all, 'categories'] as const,
-  byCategory: (category: string) => [...productKeys.all, 'category', category] as const,
+  byCategory: (category: string) =>
+    [...productKeys.all, 'category', category] as const,
   search: (query: string) => [...productKeys.all, 'search', query] as const,
 };
 
@@ -48,7 +50,9 @@ export function useCategories(): UseQueryResult<string[], Error> {
 }
 
 // Hook to fetch products by category
-export function useProductsByCategory(category: string): UseQueryResult<Product[], Error> {
+export function useProductsByCategory(
+  category: string
+): UseQueryResult<Product[], Error> {
   return useQuery({
     queryKey: productKeys.byCategory(category),
     queryFn: async () => {
@@ -60,7 +64,9 @@ export function useProductsByCategory(category: string): UseQueryResult<Product[
 }
 
 // Hook to search products
-export function useSearchProducts(query: string): UseQueryResult<Product[], Error> {
+export function useSearchProducts(
+  query: string
+): UseQueryResult<Product[], Error> {
   return useQuery({
     queryKey: productKeys.search(query),
     queryFn: async () => {
